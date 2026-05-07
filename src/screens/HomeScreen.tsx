@@ -1,30 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
+import { colors } from '../constants/colors';
 
 export const HomeScreen: React.FC = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>MOOVICITY</Text>
-      <Text style={styles.subtitle}>Dashboard Urban Pulse</Text>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#000',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    marginTop: 8,
-  },
-});
+  return (\n    <SafeAreaView style={styles.container}>\n      <View style={styles.header}>\n        <Text style={styles.logo}>MOOVICITY</Text>\n        <Text style={styles.greeting}>Olá, Ana!</Text>\n      </View>\n\n      <View style={styles.alertBar}>\n        <Text style={styles.alertText}>⚠️ Atraso médio: 12 min na Linha de Sintra</Text>\n      </View>\n\n      <View style={styles.journeyCard}>\n        <Text style={styles.cardTitle}>Sintra ➔ Sete Rios</Text>\n        <Text style={styles.timer}>Próximo em 4 min</Text>\n        <Text style={styles.iaHint}>IA: Risco de atraso alto hoje.</Text>\n      </View>\n\n      <TouchableOpacity style={styles.button}>\n        <Text style={styles.buttonText}>EasyRide: Check-in de Viagem</Text>\n      </TouchableOpacity>\n    </SafeAreaView>\n  );\n};\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    backgroundColor: colors.darkTeal,\n    padding: 20,\n  },\n  header: {\n    marginBottom: 30,\n  },\n  logo: {\n    color: colors.white,\n    fontSize: 24,\n    fontWeight: 'bold',\n  },\n  greeting: {\n    color: colors.white,\n    opacity: 0.8,\n    marginTop: 4,\n  },\n  alertBar: {\n    backgroundColor: colors.warning,\n    padding: 15,\n    borderRadius: 10,\n    marginBottom: 20,\n  },\n  alertText: {\n    color: colors.white,\n    fontWeight: 'bold',\n  },\n  journeyCard: {\n    backgroundColor: colors.white,\n    padding: 25,\n    borderRadius: 15,\n    marginBottom: 40,\n  },\n  cardTitle: {\n    fontSize: 20,\n    fontWeight: 'bold',\n    color: colors.darkText,\n  },\n  timer: {\n    fontSize: 32,\n    color: colors.darkTeal,\n    marginVertical: 10,\n    fontWeight: '600',\n  },\n  iaHint: {\n    color: colors.gray,\n    fontStyle: 'italic',\n  },\n  button: {\n    backgroundColor: colors.success,\n    padding: 20,\n    borderRadius: 30,\n    alignItems: 'center',\n  },\n  buttonText: {\n    color: colors.white,\n    fontSize: 18,\n    fontWeight: 'bold',\n  },\n});\n
