@@ -1,6 +1,108 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import { colors } from '../constants/colors';
 
 export const HomeScreen: React.FC = () => {
-  return (\n    <SafeAreaView style={styles.container}>\n      <View style={styles.header}>\n        <Text style={styles.logo}>MOOVICITY</Text>\n        <Text style={styles.greeting}>Olá, Ana!</Text>\n      </View>\n\n      <View style={styles.alertBar}>\n        <Text style={styles.alertText}>⚠️ Atraso médio: 12 min na Linha de Sintra</Text>\n      </View>\n\n      <View style={styles.journeyCard}>\n        <Text style={styles.cardTitle}>Sintra ➔ Sete Rios</Text>\n        <Text style={styles.timer}>Próximo em 4 min</Text>\n        <Text style={styles.iaHint}>IA: Risco de atraso alto hoje.</Text>\n      </View>\n\n      <TouchableOpacity style={styles.button}>\n        <Text style={styles.buttonText}>EasyRide: Check-in de Viagem</Text>\n      </TouchableOpacity>\n    </SafeAreaView>\n  );\n};\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    backgroundColor: colors.darkTeal,\n    padding: 20,\n  },\n  header: {\n    marginBottom: 30,\n  },\n  logo: {\n    color: colors.white,\n    fontSize: 24,\n    fontWeight: 'bold',\n  },\n  greeting: {\n    color: colors.white,\n    opacity: 0.8,\n    marginTop: 4,\n  },\n  alertBar: {\n    backgroundColor: colors.warning,\n    padding: 15,\n    borderRadius: 10,\n    marginBottom: 20,\n  },\n  alertText: {\n    color: colors.white,\n    fontWeight: 'bold',\n  },\n  journeyCard: {\n    backgroundColor: colors.white,\n    padding: 25,\n    borderRadius: 15,\n    marginBottom: 40,\n  },\n  cardTitle: {\n    fontSize: 20,\n    fontWeight: 'bold',\n    color: colors.darkText,\n  },\n  timer: {\n    fontSize: 32,\n    color: colors.darkTeal,\n    marginVertical: 10,\n    fontWeight: '600',\n  },\n  iaHint: {\n    color: colors.gray,\n    fontStyle: 'italic',\n  },\n  button: {\n    backgroundColor: colors.success,\n    padding: 20,\n    borderRadius: 30,\n    alignItems: 'center',\n  },\n  buttonText: {\n    color: colors.white,\n    fontSize: 18,\n    fontWeight: 'bold',\n  },\n});\n
+  const [isMonitoring, setIsMonitoring] = useState(false);
+
+  const handleCheckIn = () => {
+    setIsMonitoring(!isMonitoring);
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.logo}>MOOVICITY</Text>
+        <Text style={styles.greeting}>Olá, Ana!</Text>
+      </View>
+
+      <View style={styles.alertBar}>
+        <Text style={styles.alertText}>⚠️ Atraso médio: 12 min na Linha de Sintra</Text>
+      </View>
+
+      <View style={styles.journeyCard}>
+        <Text style={styles.cardTitle}>Sintra ➔ Sete Rios</Text>
+        <Text style={styles.timer}>Próximo em 4 min</Text>
+        <Text style={styles.iaHint}>IA: Risco de atraso alto hoje.</Text>
+      </View>
+
+      <TouchableOpacity 
+        style={[
+          styles.button,
+          isMonitoring && styles.buttonMonitoring
+        ]}
+        onPress={handleCheckIn}
+      >
+        <Text style={styles.buttonText}>
+          {isMonitoring ? 'Viagem em Monitoramento' : 'EasyRide: Check-in de Viagem'}
+        </Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.darkTeal,
+    padding: 20,
+  },
+  header: {
+    marginBottom: 30,
+  },
+  logo: {
+    color: colors.white,
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  greeting: {
+    color: colors.white,
+    opacity: 0.8,
+    marginTop: 4,
+  },
+  alertBar: {
+    backgroundColor: colors.warning,
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  alertText: {
+    color: colors.white,
+    fontWeight: 'bold',
+  },
+  journeyCard: {
+    backgroundColor: colors.white,
+    padding: 25,
+    borderRadius: 15,
+    marginBottom: 40,
+  },
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.darkText,
+  },
+  timer: {
+    fontSize: 32,
+    color: colors.darkTeal,
+    marginVertical: 10,
+    fontWeight: '600',
+  },
+  iaHint: {
+    color: colors.gray,
+    fontStyle: 'italic',
+  },
+  button: {
+    backgroundColor: colors.success,
+    padding: 20,
+    borderRadius: 30,
+    alignItems: 'center',
+  },
+  buttonMonitoring: {
+    backgroundColor: colors.warning,
+  },
+  buttonText: {
+    color: colors.white,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
