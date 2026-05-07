@@ -1,1 +1,36 @@
-{\n  "name": "moovicity-app",\n  "version": "1.0.0",\n  "description": "MOOVICITY - Plataforma de mobilidade inteligente para trabalhadores urbanos",\n  "main": "index.ts",\n  "scripts": {\n    "start": "expo start",\n    "android": "expo start --android",\n    "ios": "expo start --ios",\n    "web": "expo start --web",\n    "eject": "expo eject"\n  },\n  "dependencies": {\n    "expo": "~50.0.0",\n    "expo-status-bar": "~1.11.1",\n    "react": "18.2.0",\n    "react-native": "0.73.0",\n    "react-native-qrcode-svg": "^6.2.2",\n    "react-native-svg": "^14.0.0",\n    "typescript": "^5.3.0"\n  },\n  "devDependencies": {\n    "@types/react": "~18.2.14",\n    "@types/react-native": "^0.73.0",\n    "babel-preset-expo": "~10.0.0"\n  },\n  "private": true\n}\n
+{
+  "name": "moovicity-app",
+  "version": "1.0.0",
+  "description": "Smart mobility platform for urban rail passengers in Portugal",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-native": "^0.72.0",
+    "expo": "^49.0.0",
+    "react-native-qrcode-svg": "^6.2.2",
+    "react-native-svg": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-native": "^0.72.0",
+    "typescript": "^5.1.0",
+    "babel-preset-expo": "^9.0.0"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "mobility",
+    "portugal",
+    "rail",
+    "qr-code"
+  ],
+  "author": "AmigoLionXP",
+  "license": "MIT"
+}
